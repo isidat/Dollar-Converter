@@ -1,0 +1,29 @@
+﻿<Window x:Class="Dollar_Converter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dollar_Converter"
+        mc:Ignorable="d"
+        Title="Dollar Converter" Height="600" Width="1000">
+    <Grid Background="PaleGreen">
+        <TextBox x:Name="NumberTextbox" HorizontalAlignment="Center" Height="40" Margin="0,0,0,100" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="400" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
+
+        <TextBlock IsHitTestVisible="False" Text="Enter Number (Eg: 99 999,99)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100" Foreground="DarkGray" FontSize="24">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=NumberTextbox}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <Button x:Name="ConvertButton" Content="Convert" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Height="40" Width="100" FontSize="20" IsDefault="True" Click="ConvertButton_Click"/>
+
+        <TextBlock x:Name="WordTextBlock" HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" Width="800" FontSize="24"/>
+    </Grid>
+</Window>
